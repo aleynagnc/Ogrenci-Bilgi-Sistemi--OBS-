@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24C589CE-4E17-468E-9173-BFF9E504BA46}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OBS</RootNamespace>
+    <AssemblyName>OBS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include=".Designer.cs" />
+    <Compile Include="AkademisyenGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AkademisyenGiris.Designer.cs">
+      <DependentUpon>AkademisyenGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bilgilerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilgilerim.Designer.cs">
+      <DependentUpon>Bilgilerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB.cs" />
+    <Compile Include="Ders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ders.Designer.cs">
+      <DependentUpon>Ders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DersSecmeIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DersSecmeIslemleri.Designer.cs">
+      <DependentUpon>DersSecmeIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\akademisyenbilgi_Result.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Bolum.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Der.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DersSecme.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Fakulte.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Not_.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ObsDbEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObsDbEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ObsDbEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ObsDbEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObsDbEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Ogrenci.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Ogrencibil_Result.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OgrenciIsleri.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OgretimElemani.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\secilmisdersler_Result.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbNotlar_Result.cs">
+      <DependentUpon>ObsDbEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="importexport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="importexport.Designer.cs">
+      <DependentUpon>importexport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menüEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menüEkrani.Designer.cs">
+      <DependentUpon>menüEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotGirisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotGirisi.Designer.cs">
+      <DependentUpon>NotGirisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notgoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notgoster.Designer.cs">
+      <DependentUpon>Notgoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObsDbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObsDbDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ObsDbDataSet3.cs">
+      <DependentUpon>ObsDbDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ObsDbDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObsDbDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OgrenciEklemeSilme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgrenciEklemeSilme.Designer.cs">
+      <DependentUpon>OgrenciEklemeSilme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OgrenciGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgrenciGiris.Designer.cs">
+      <DependentUpon>OgrenciGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginEkrani.Designer.cs">
+      <DependentUpon>LoginEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OgrencIsleriEkleSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgrencIsleriEkleSil.Designer.cs">
+      <DependentUpon>OgrencIsleriEkleSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OgretimElemaniEkleSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgretimElemaniEkleSil.Designer.cs">
+      <DependentUpon>OgretimElemaniEkleSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OgrenciGoruntule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgrenciGoruntule.Designer.cs">
+      <DependentUpon>OgrenciGoruntule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OgretimElemaniGoruntule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgretimElemaniGoruntule.Designer.cs">
+      <DependentUpon>OgretimElemaniGoruntule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelGiris.Designer.cs">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SifremiUnuttumOgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SifremiUnuttumOgr.Designer.cs">
+      <DependentUpon>SifremiUnuttumOgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SifremiUnuttumOgrt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SifremiUnuttumOgrt.Designer.cs">
+      <DependentUpon>SifremiUnuttumOgrt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SifremiUnuttumPersonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SifremiUnuttumPersonel.Designer.cs">
+      <DependentUpon>SifremiUnuttumPersonel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YedekleYedektenDön.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YedekleYedektenDön.Designer.cs">
+      <DependentUpon>YedekleYedektenDön.cs</DependentUpon>
+    </Compile>
+    <Compile Include="yetkilendirmeSinif.cs" />
+    <Compile Include="Yoneticigiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yoneticigiris.Designer.cs">
+      <DependentUpon>Yoneticigiris.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AkademisyenGiris.resx">
+      <DependentUpon>AkademisyenGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bilgilerim.resx">
+      <DependentUpon>Bilgilerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ders.resx">
+      <DependentUpon>Ders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DersSecmeIslemleri.resx">
+      <DependentUpon>DersSecmeIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="importexport.resx">
+      <DependentUpon>importexport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginEkrani.resx">
+      <DependentUpon>LoginEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menüEkrani.resx">
+      <DependentUpon>menüEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotGirisi.resx">
+      <DependentUpon>NotGirisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notgoster.resx">
+      <DependentUpon>Notgoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgrenciEklemeSilme.resx">
+      <DependentUpon>OgrenciEklemeSilme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgrencIsleriEkleSil.resx">
+      <DependentUpon>OgrencIsleriEkleSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgretimElemaniEkleSil.resx">
+      <DependentUpon>OgretimElemaniEkleSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgrenciGoruntule.resx">
+      <DependentUpon>OgrenciGoruntule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgretimElemaniGoruntule.resx">
+      <DependentUpon>OgretimElemaniGoruntule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelGiris.resx">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="OgrenciGiris.resx">
+      <DependentUpon>OgrenciGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SifremiUnuttumOgr.resx">
+      <DependentUpon>SifremiUnuttumOgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SifremiUnuttumOgrt.resx">
+      <DependentUpon>SifremiUnuttumOgrt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SifremiUnuttumPersonel.resx">
+      <DependentUpon>SifremiUnuttumPersonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YedekleYedektenDön.resx">
+      <DependentUpon>YedekleYedektenDön.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yoneticigiris.resx">
+      <DependentUpon>Yoneticigiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entity\ObsDbEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ObsDbEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\ObsDbEntity.edmx.diagram">
+      <DependentUpon>ObsDbEntity.edmx</DependentUpon>
+    </None>
+    <None Include="ObsDbDataSet1.xsc">
+      <DependentUpon>ObsDbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ObsDbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ObsDbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ObsDbDataSet1.xss">
+      <DependentUpon>ObsDbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ObsDbDataSet3.xsc">
+      <DependentUpon>ObsDbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ObsDbDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ObsDbDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ObsDbDataSet3.xss">
+      <DependentUpon>ObsDbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Düzce_University_logo.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\akademisyen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\studentt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personel2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personel21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personel2.png" />
+    <None Include="Resources\anassyfa1.png" />
+    <None Include="Resources\anasayfaa1.png" />
+    <None Include="Resources\anasayfa.jpg" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\anasayfaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\ObsDbEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ObsDbEntity.edmx</DependentUpon>
+      <LastGenOutput>ObsDbEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\ObsDbEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ObsDbEntity.edmx</DependentUpon>
+      <LastGenOutput>ObsDbEntity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ara butonu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

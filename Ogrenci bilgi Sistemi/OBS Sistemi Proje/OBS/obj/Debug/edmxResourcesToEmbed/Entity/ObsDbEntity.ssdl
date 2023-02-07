@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ObsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="BolumID" />
+    </Key>
+    <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BolumAd" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PersonelID" Type="int" />
+    <Property Name="FakulteID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.calisir' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="calisir">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="BolumID" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Ders">
+    <Key>
+      <PropertyRef Name="DersKodu" />
+    </Key>
+    <Property Name="DersKodu" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Yariyil" Type="char" MaxLength="1" />
+    <Property Name="DersAdi" Type="varchar" MaxLength="100" />
+    <Property Name="Dil" Type="varchar" MaxLength="15" />
+    <Property Name="Kredi" Type="float" />
+    <Property Name="Akts" Type="float" />
+    <Property Name="BolumID" Type="int" />
+  </EntityType>
+  <EntityType Name="DersSecme">
+    <Key>
+      <PropertyRef Name="DersSecID" />
+    </Key>
+    <Property Name="DersSecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrNo" Type="char" MaxLength="9" />
+    <Property Name="BolumID" Type="int" />
+    <Property Name="DersKodu" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Fakulte">
+    <Key>
+      <PropertyRef Name="FakulteID" />
+    </Key>
+    <Property Name="FakulteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FakulteAd" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.KayitOnaylar' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="KayitOnaylar">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+          <Property Name="OnayTarihi" Type="date" />
+        </EntityType>-->
+  <EntityType Name="Not_">
+    <Key>
+      <PropertyRef Name="NotID" />
+    </Key>
+    <Property Name="NotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vize" Type="int" />
+    <Property Name="final" Type="int" />
+    <Property Name="ortalama" Type="float" />
+    <Property Name="harfnotu" Type="char" MaxLength="2" />
+    <Property Name="OgrtID" Type="char" MaxLength="10" />
+    <Property Name="DersKodu" Type="char" MaxLength="5" />
+    <Property Name="OgrNo" Type="char" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="Ogrenci">
+    <Key>
+      <PropertyRef Name="OgrNo" />
+    </Key>
+    <Property Name="OgrNo" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="OgrAd" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="OgrSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cinsiyet" Type="char" MaxLength="1" />
+    <Property Name="DogumTar" Type="date" />
+    <Property Name="OgrTelNo" Type="char" MaxLength="10" />
+    <Property Name="Sinif" Type="varchar" MaxLength="8" />
+    <Property Name="OgrResim" Type="varchar" MaxLength="250" />
+    <Property Name="OgrMail" Type="varchar" MaxLength="60" />
+    <Property Name="OgrSifre" Type="varchar" MaxLength="15" />
+    <Property Name="DanismanID" Type="char" MaxLength="10" />
+    <Property Name="BolumID" Type="int" />
+    <Property Name="PersonelID" Type="int" />
+    <Property Name="OgrYetkiID" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="OgrenciIsleri">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonelAd" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PersonelSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PersonelTel" Type="char" MaxLength="10" />
+    <Property Name="PersonelMail" Type="varchar" MaxLength="60" />
+    <Property Name="PersonelSifre" Type="varchar" MaxLength="15" />
+    <Property Name="PersonelYetkiID" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="OgretimElemani">
+    <Key>
+      <PropertyRef Name="OgrtID" />
+    </Key>
+    <Property Name="OgrtID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="OgrtAd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OgrtSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unvan" Type="varchar" MaxLength="50" />
+    <Property Name="OgrtMail" Type="varchar" MaxLength="60" />
+    <Property Name="OgrtSifre" Type="varchar" MaxLength="15" />
+    <Property Name="OgrtYetkiID" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenBolumKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenBolumKayit">
+          <Property Name="BolumID" Type="int" />
+          <Property Name="BolumAd" Type="varchar" MaxLength="150" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="FakulteID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenDersKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenDersKayit">
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+          <Property Name="Yariyil" Type="char" MaxLength="1" />
+          <Property Name="DersAdi" Type="varchar" MaxLength="100" />
+          <Property Name="Dil" Type="varchar" MaxLength="15" />
+          <Property Name="Kredi" Type="float" />
+          <Property Name="Akts" Type="float" />
+          <Property Name="BolumID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenFakulteKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenFakulteKayit">
+          <Property Name="FakulteID" Type="int" />
+          <Property Name="FakulteAd" Type="varchar" MaxLength="150" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenOgrKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenOgrKayit">
+          <Property Name="OgrNo" Type="char" MaxLength="9" />
+          <Property Name="OgrAd" Type="varchar" MaxLength="30" />
+          <Property Name="OgrSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Cinsiyet" Type="char" MaxLength="1" />
+          <Property Name="DogumTar" Type="date" />
+          <Property Name="OgrTelNo" Type="char" MaxLength="10" />
+          <Property Name="Sinif" Type="varchar" MaxLength="8" />
+          <Property Name="OgrResim" Type="varchar" MaxLength="250" />
+          <Property Name="OgrMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrSifre" Type="varchar" MaxLength="15" />
+          <Property Name="DanismanID" Type="char" MaxLength="10" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenOgrtKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenOgrtKayit">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="OgrtAd" Type="varchar" MaxLength="50" />
+          <Property Name="OgrtSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Unvan" Type="varchar" MaxLength="50" />
+          <Property Name="OgrtMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrtSifre" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenPerKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenPerKayit">
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="PersonelAd" Type="varchar" MaxLength="30" />
+          <Property Name="PersonelSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="PersonelTel" Type="char" MaxLength="10" />
+          <Property Name="PersonelMail" Type="varchar" MaxLength="60" />
+          <Property Name="PersonelSifre" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.Yetki' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Yetki">
+          <Property Name="Yetkiid" Type="char" MaxLength="1" />
+          <Property Name="Yetkili" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.Yonetici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Yonetici">
+          <Property Name="YoneticiID" Type="char" MaxLength="5" />
+          <Property Name="YoneticiSifre" Type="varchar" MaxLength="15" />
+          <Property Name="YoneticiYetkiID" Type="char" MaxLength="1" />
+        </EntityType>-->
+  <Association Name="fk_bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ders" Type="Self.Ders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="Ders">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.calisir' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_bolumm" />-->
+  <Association Name="fk_bolummm">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_boluumm">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.KayitOnaylar' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_derskodu" />-->
+  <Association Name="fk_derskoduu">
+    <End Role="Ders" Type="Self.Ders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="DersKodu" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="DersKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dersskoduu">
+    <End Role="Ders" Type="Self.Ders" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="DersKodu" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="DersKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fakulte">
+    <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="FakulteID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="FakulteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrno">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="OgrNo" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="OgrNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrrno">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="OgrNo" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="OgrNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.calisir' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_ogrt" />-->
+  <Association Name="fk_ogrtI">
+    <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgretimElemani">
+        <PropertyRef Name="OgrtID" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="OgrtID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.KayitOnaylar' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_ogrtID" />-->
+  <Association Name="fk_ogrtIDD">
+    <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgretimElemani">
+        <PropertyRef Name="OgrtID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="DanismanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_personel">
+    <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgrenciIsleri">
+        <PropertyRef Name="PersonelID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="PersonelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_personell">
+    <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgrenciIsleri">
+        <PropertyRef Name="PersonelID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="PersonelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="akademisyenbilgi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Ogrencibil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="secilmisdersler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbNotlar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ObsDbModelStoreContainer">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ders" EntityType="Self.Ders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DersSecme" EntityType="Self.DersSecme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fakulte" EntityType="Self.Fakulte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Not_" EntityType="Self.Not_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OgrenciIsleri" EntityType="Self.OgrenciIsleri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OgretimElemani" EntityType="Self.OgretimElemani" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_bolum" Association="Self.fk_bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Ders" EntitySet="Ders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_bolummm" Association="Self.fk_bolummm">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="fk_boluumm" Association="Self.fk_boluumm">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="DersSecme" EntitySet="DersSecme" />
+    </AssociationSet>
+    <AssociationSet Name="fk_derskoduu" Association="Self.fk_derskoduu">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dersskoduu" Association="Self.fk_dersskoduu">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="DersSecme" EntitySet="DersSecme" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fakulte" Association="Self.fk_fakulte">
+      <End Role="Fakulte" EntitySet="Fakulte" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrno" Association="Self.fk_ogrno">
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrrno" Association="Self.fk_ogrrno">
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+      <End Role="DersSecme" EntitySet="DersSecme" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrtI" Association="Self.fk_ogrtI">
+      <End Role="OgretimElemani" EntitySet="OgretimElemani" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrtIDD" Association="Self.fk_ogrtIDD">
+      <End Role="OgretimElemani" EntitySet="OgretimElemani" />
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="fk_personel" Association="Self.fk_personel">
+      <End Role="OgrenciIsleri" EntitySet="OgrenciIsleri" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_personell" Association="Self.fk_personell">
+      <End Role="OgrenciIsleri" EntitySet="OgrenciIsleri" />
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

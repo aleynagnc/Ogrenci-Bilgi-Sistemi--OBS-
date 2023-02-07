@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ObsDbModelStoreContainer" CdmEntityContainer="ObsDbEntitiessDB">
+    <EntitySetMapping Name="Bolums">
+      <EntityTypeMapping TypeName="ObsDbModel.Bolum">
+        <MappingFragment StoreEntitySet="Bolum">
+          <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+          <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ders">
+      <EntityTypeMapping TypeName="ObsDbModel.Der">
+        <MappingFragment StoreEntitySet="Ders">
+          <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+          <ScalarProperty Name="Yariyil" ColumnName="Yariyil" />
+          <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+          <ScalarProperty Name="Dil" ColumnName="Dil" />
+          <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+          <ScalarProperty Name="Akts" ColumnName="Akts" />
+          <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DersSecmes">
+      <EntityTypeMapping TypeName="ObsDbModel.DersSecme">
+        <MappingFragment StoreEntitySet="DersSecme">
+          <ScalarProperty Name="DersSecID" ColumnName="DersSecID" />
+          <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+          <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+          <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fakultes">
+      <EntityTypeMapping TypeName="ObsDbModel.Fakulte">
+        <MappingFragment StoreEntitySet="Fakulte">
+          <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+          <ScalarProperty Name="FakulteAd" ColumnName="FakulteAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Not_">
+      <EntityTypeMapping TypeName="ObsDbModel.Not_">
+        <MappingFragment StoreEntitySet="Not_">
+          <ScalarProperty Name="NotID" ColumnName="NotID" />
+          <ScalarProperty Name="vize" ColumnName="vize" />
+          <ScalarProperty Name="final" ColumnName="final" />
+          <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+          <ScalarProperty Name="harfnotu" ColumnName="harfnotu" />
+          <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+          <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+          <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ogrencis">
+      <EntityTypeMapping TypeName="ObsDbModel.Ogrenci">
+        <MappingFragment StoreEntitySet="Ogrenci">
+          <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumTar" ColumnName="DogumTar" />
+          <ScalarProperty Name="OgrTelNo" ColumnName="OgrTelNo" />
+          <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+          <ScalarProperty Name="OgrResim" ColumnName="OgrResim" />
+          <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+          <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+          <ScalarProperty Name="DanismanID" ColumnName="DanismanID" />
+          <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="OgrYetkiID" ColumnName="OgrYetkiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OgrenciIsleris">
+      <EntityTypeMapping TypeName="ObsDbModel.OgrenciIsleri">
+        <MappingFragment StoreEntitySet="OgrenciIsleri">
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="PersonelAd" ColumnName="PersonelAd" />
+          <ScalarProperty Name="PersonelSoyad" ColumnName="PersonelSoyad" />
+          <ScalarProperty Name="PersonelTel" ColumnName="PersonelTel" />
+          <ScalarProperty Name="PersonelMail" ColumnName="PersonelMail" />
+          <ScalarProperty Name="PersonelSifre" ColumnName="PersonelSifre" />
+          <ScalarProperty Name="PersonelYetkiID" ColumnName="PersonelYetkiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OgretimElemanis">
+      <EntityTypeMapping TypeName="ObsDbModel.OgretimElemani">
+        <MappingFragment StoreEntitySet="OgretimElemani">
+          <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+          <ScalarProperty Name="OgrtAd" ColumnName="OgrtAd" />
+          <ScalarProperty Name="OgrtSoyad" ColumnName="OgrtSoyad" />
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+          <ScalarProperty Name="OgrtMail" ColumnName="OgrtMail" />
+          <ScalarProperty Name="OgrtSifre" ColumnName="OgrtSifre" />
+          <ScalarProperty Name="OgrtYetkiID" ColumnName="OgrtYetkiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="akademisyenbilgi" FunctionName="ObsDbModel.Store.akademisyenbilgi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ObsDbModel.akademisyenbilgi_Result">
+          <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+          <ScalarProperty Name="OgrtAd" ColumnName="OgrtAd" />
+          <ScalarProperty Name="OgrtSoyad" ColumnName="OgrtSoyad" />
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+          <ScalarProperty Name="OgrtMail" ColumnName="OgrtMail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Ogrencibil" FunctionName="ObsDbModel.Store.Ogrencibil">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ObsDbModel.Ogrencibil_Result">
+          <ScalarProperty Name="OgrNO" ColumnName="OgrNO" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumTar" ColumnName="DogumTar" />
+          <ScalarProperty Name="OgrTelNo" ColumnName="OgrTelNo" />
+          <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+          <ScalarProperty Name="OgrResim" ColumnName="OgrResim" />
+          <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+          <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+          <ScalarProperty Name="DanismanID" ColumnName="DanismanID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="secilmisdersler" FunctionName="ObsDbModel.Store.secilmisdersler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ObsDbModel.secilmisdersler_Result">
+          <ScalarProperty Name="DersSecID" ColumnName="DersSecID" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="Yariyil" ColumnName="Yariyil" />
+          <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+          <ScalarProperty Name="Akts" ColumnName="Akts" />
+          <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+          <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbNotlar" FunctionName="ObsDbModel.Store.tbNotlar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ObsDbModel.tbNotlar_Result">
+          <ScalarProperty Name="NotID" ColumnName="NotID" />
+          <ScalarProperty Name="Vize" ColumnName="Vize" />
+          <ScalarProperty Name="final" ColumnName="final" />
+          <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+          <ScalarProperty Name="harfnotu" ColumnName="harfnotu" />
+          <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

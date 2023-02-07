@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ObsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="BolumID" />
+    </Key>
+    <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BolumAd" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PersonelID" Type="Int32" />
+    <Property Name="FakulteID" Type="Int32" />
+    <NavigationProperty Name="Ders" Relationship="Self.fk_bolum" FromRole="Bolum" ToRole="Ders" />
+    <NavigationProperty Name="Ogrencis" Relationship="Self.fk_bolummm" FromRole="Bolum" ToRole="Ogrenci" />
+    <NavigationProperty Name="DersSecmes" Relationship="Self.fk_boluumm" FromRole="Bolum" ToRole="DersSecme" />
+    <NavigationProperty Name="Fakulte" Relationship="Self.fk_fakulte" FromRole="Bolum" ToRole="Fakulte" />
+    <NavigationProperty Name="OgrenciIsleri" Relationship="Self.fk_personel" FromRole="Bolum" ToRole="OgrenciIsleri" />
+  </EntityType>
+  <EntityType Name="Der">
+    <Key>
+      <PropertyRef Name="DersKodu" />
+    </Key>
+    <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Yariyil" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DersAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Dil" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Kredi" Type="Double" />
+    <Property Name="Akts" Type="Double" />
+    <Property Name="BolumID" Type="Int32" />
+    <NavigationProperty Name="Bolum" Relationship="Self.fk_bolum" FromRole="Ders" ToRole="Bolum" />
+    <NavigationProperty Name="Not_" Relationship="Self.fk_derskoduu" FromRole="Ders" ToRole="Not_" />
+    <NavigationProperty Name="DersSecmes" Relationship="Self.fk_dersskoduu" FromRole="Ders" ToRole="DersSecme" />
+  </EntityType>
+  <EntityType Name="DersSecme">
+    <Key>
+      <PropertyRef Name="DersSecID" />
+    </Key>
+    <Property Name="DersSecID" Type="Int32" Nullable="false" />
+    <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="BolumID" Type="Int32" />
+    <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.fk_boluumm" FromRole="DersSecme" ToRole="Bolum" />
+    <NavigationProperty Name="Der" Relationship="Self.fk_dersskoduu" FromRole="DersSecme" ToRole="Ders" />
+    <NavigationProperty Name="Ogrenci" Relationship="Self.fk_ogrrno" FromRole="DersSecme" ToRole="Ogrenci" />
+  </EntityType>
+  <EntityType Name="Fakulte">
+    <Key>
+      <PropertyRef Name="FakulteID" />
+    </Key>
+    <Property Name="FakulteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FakulteAd" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bolums" Relationship="Self.fk_fakulte" FromRole="Fakulte" ToRole="Bolum" />
+  </EntityType>
+  <EntityType Name="Not_">
+    <Key>
+      <PropertyRef Name="NotID" />
+    </Key>
+    <Property Name="NotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vize" Type="Int32" />
+    <Property Name="final" Type="Int32" />
+    <Property Name="ortalama" Type="Double" />
+    <Property Name="harfnotu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="OgrtID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Der" Relationship="Self.fk_derskoduu" FromRole="Not_" ToRole="Ders" />
+    <NavigationProperty Name="Ogrenci" Relationship="Self.fk_ogrno" FromRole="Not_" ToRole="Ogrenci" />
+    <NavigationProperty Name="OgretimElemani" Relationship="Self.fk_ogrtI" FromRole="Not_" ToRole="OgretimElemani" />
+  </EntityType>
+  <EntityType Name="Ogrenci">
+    <Key>
+      <PropertyRef Name="OgrNo" />
+    </Key>
+    <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="OgrAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OgrSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cinsiyet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DogumTar" Type="DateTime" Precision="0" />
+    <Property Name="OgrTelNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Sinif" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="OgrResim" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="OgrMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="OgrSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DanismanID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="BolumID" Type="Int32" />
+    <Property Name="PersonelID" Type="Int32" />
+    <Property Name="OgrYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.fk_bolummm" FromRole="Ogrenci" ToRole="Bolum" />
+    <NavigationProperty Name="DersSecmes" Relationship="Self.fk_ogrrno" FromRole="Ogrenci" ToRole="DersSecme" />
+    <NavigationProperty Name="Not_" Relationship="Self.fk_ogrno" FromRole="Ogrenci" ToRole="Not_" />
+    <NavigationProperty Name="OgretimElemani" Relationship="Self.fk_ogrtIDD" FromRole="Ogrenci" ToRole="OgretimElemani" />
+    <NavigationProperty Name="OgrenciIsleri" Relationship="Self.fk_personell" FromRole="Ogrenci" ToRole="OgrenciIsleri" />
+  </EntityType>
+  <EntityType Name="OgrenciIsleri">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonelAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PersonelSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PersonelTel" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="PersonelMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Bolums" Relationship="Self.fk_personel" FromRole="OgrenciIsleri" ToRole="Bolum" />
+    <NavigationProperty Name="Ogrencis" Relationship="Self.fk_personell" FromRole="OgrenciIsleri" ToRole="Ogrenci" />
+  </EntityType>
+  <EntityType Name="OgretimElemani">
+    <Key>
+      <PropertyRef Name="OgrtID" />
+    </Key>
+    <Property Name="OgrtID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="OgrtAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OgrtSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Unvan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OgrtMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="OgrtSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="OgrtYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Not_" Relationship="Self.fk_ogrtI" FromRole="OgretimElemani" ToRole="Not_" />
+    <NavigationProperty Name="Ogrencis" Relationship="Self.fk_ogrtIDD" FromRole="OgretimElemani" ToRole="Ogrenci" />
+  </EntityType>
+  <Association Name="fk_bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ders" Type="Self.Der" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="Ders">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_bolummm">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_boluumm">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="BolumID" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fakulte">
+    <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="FakulteID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="FakulteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_personel">
+    <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgrenciIsleri">
+        <PropertyRef Name="PersonelID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="PersonelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_derskoduu">
+    <End Role="Ders" Type="Self.Der" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="DersKodu" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="DersKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dersskoduu">
+    <End Role="Ders" Type="Self.Der" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="DersKodu" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="DersKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrrno">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+    <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="OgrNo" />
+      </Principal>
+      <Dependent Role="DersSecme">
+        <PropertyRef Name="OgrNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrno">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="OgrNo" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="OgrNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrtI">
+    <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+    <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgretimElemani">
+        <PropertyRef Name="OgrtID" />
+      </Principal>
+      <Dependent Role="Not_">
+        <PropertyRef Name="OgrtID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ogrtIDD">
+    <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgretimElemani">
+        <PropertyRef Name="OgrtID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="DanismanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_personell">
+    <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OgrenciIsleri">
+        <PropertyRef Name="PersonelID" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="PersonelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ObsDbEntitiessDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bolums" EntityType="Self.Bolum" />
+    <EntitySet Name="Ders" EntityType="Self.Der" />
+    <EntitySet Name="DersSecmes" EntityType="Self.DersSecme" />
+    <EntitySet Name="Fakultes" EntityType="Self.Fakulte" />
+    <EntitySet Name="Not_" EntityType="Self.Not_" />
+    <EntitySet Name="Ogrencis" EntityType="Self.Ogrenci" />
+    <EntitySet Name="OgrenciIsleris" EntityType="Self.OgrenciIsleri" />
+    <EntitySet Name="OgretimElemanis" EntityType="Self.OgretimElemani" />
+    <AssociationSet Name="fk_bolum" Association="Self.fk_bolum">
+      <End Role="Bolum" EntitySet="Bolums" />
+      <End Role="Ders" EntitySet="Ders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_bolummm" Association="Self.fk_bolummm">
+      <End Role="Bolum" EntitySet="Bolums" />
+      <End Role="Ogrenci" EntitySet="Ogrencis" />
+    </AssociationSet>
+    <AssociationSet Name="fk_boluumm" Association="Self.fk_boluumm">
+      <End Role="Bolum" EntitySet="Bolums" />
+      <End Role="DersSecme" EntitySet="DersSecmes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fakulte" Association="Self.fk_fakulte">
+      <End Role="Fakulte" EntitySet="Fakultes" />
+      <End Role="Bolum" EntitySet="Bolums" />
+    </AssociationSet>
+    <AssociationSet Name="fk_personel" Association="Self.fk_personel">
+      <End Role="OgrenciIsleri" EntitySet="OgrenciIsleris" />
+      <End Role="Bolum" EntitySet="Bolums" />
+    </AssociationSet>
+    <AssociationSet Name="fk_derskoduu" Association="Self.fk_derskoduu">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dersskoduu" Association="Self.fk_dersskoduu">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="DersSecme" EntitySet="DersSecmes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrrno" Association="Self.fk_ogrrno">
+      <End Role="Ogrenci" EntitySet="Ogrencis" />
+      <End Role="DersSecme" EntitySet="DersSecmes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrno" Association="Self.fk_ogrno">
+      <End Role="Ogrenci" EntitySet="Ogrencis" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrtI" Association="Self.fk_ogrtI">
+      <End Role="OgretimElemani" EntitySet="OgretimElemanis" />
+      <End Role="Not_" EntitySet="Not_" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ogrtIDD" Association="Self.fk_ogrtIDD">
+      <End Role="OgretimElemani" EntitySet="OgretimElemanis" />
+      <End Role="Ogrenci" EntitySet="Ogrencis" />
+    </AssociationSet>
+    <AssociationSet Name="fk_personell" Association="Self.fk_personell">
+      <End Role="OgrenciIsleri" EntitySet="OgrenciIsleris" />
+      <End Role="Ogrenci" EntitySet="Ogrencis" />
+    </AssociationSet>
+    <FunctionImport Name="akademisyenbilgi" ReturnType="Collection(ObsDbModel.akademisyenbilgi_Result)" />
+    <FunctionImport Name="Ogrencibil" ReturnType="Collection(ObsDbModel.Ogrencibil_Result)" />
+    <FunctionImport Name="secilmisdersler" ReturnType="Collection(ObsDbModel.secilmisdersler_Result)" />
+    <FunctionImport Name="tbNotlar" ReturnType="Collection(ObsDbModel.tbNotlar_Result)" />
+  </EntityContainer>
+  <ComplexType Name="akademisyenbilgi_Result">
+    <Property Type="String" Name="OgrtID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="OgrtAd" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OgrtSoyad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Unvan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OgrtMail" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="Ogrencibil_Result">
+    <Property Type="String" Name="OgrNO" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="OgrAd" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="OgrSoyad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Cinsiyet" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="DogumTar" Nullable="true" />
+    <Property Type="String" Name="OgrTelNo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Sinif" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="OgrResim" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OgrMail" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="OgrSifre" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="DanismanID" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="secilmisdersler_Result">
+    <Property Type="Int32" Name="DersSecID" Nullable="false" />
+    <Property Type="String" Name="OgrAd" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="OgrSoyad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Yariyil" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="DersAdi" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="Akts" Nullable="true" />
+    <Property Type="Double" Name="Kredi" Nullable="true" />
+    <Property Type="String" Name="BolumAd" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="tbNotlar_Result">
+    <Property Type="Int32" Name="NotID" Nullable="false" />
+    <Property Type="Int32" Name="Vize" Nullable="true" />
+    <Property Type="Int32" Name="final" Nullable="true" />
+    <Property Type="Double" Name="ortalama" Nullable="true" />
+    <Property Type="String" Name="harfnotu" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="OgrtID" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>

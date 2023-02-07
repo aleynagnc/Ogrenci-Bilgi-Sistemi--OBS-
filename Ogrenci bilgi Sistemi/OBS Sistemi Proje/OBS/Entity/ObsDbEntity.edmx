@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ObsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumAd" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="FakulteID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.calisir' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="calisir">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="BolumID" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Ders">
+          <Key>
+            <PropertyRef Name="DersKodu" />
+          </Key>
+          <Property Name="DersKodu" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Yariyil" Type="char" MaxLength="1" />
+          <Property Name="DersAdi" Type="varchar" MaxLength="100" />
+          <Property Name="Dil" Type="varchar" MaxLength="15" />
+          <Property Name="Kredi" Type="float" />
+          <Property Name="Akts" Type="float" />
+          <Property Name="BolumID" Type="int" />
+        </EntityType>
+        <EntityType Name="DersSecme">
+          <Key>
+            <PropertyRef Name="DersSecID" />
+          </Key>
+          <Property Name="DersSecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrNo" Type="char" MaxLength="9" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Fakulte">
+          <Key>
+            <PropertyRef Name="FakulteID" />
+          </Key>
+          <Property Name="FakulteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FakulteAd" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.KayitOnaylar' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="KayitOnaylar">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+          <Property Name="OnayTarihi" Type="date" />
+        </EntityType>-->
+        <EntityType Name="Not_">
+          <Key>
+            <PropertyRef Name="NotID" />
+          </Key>
+          <Property Name="NotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vize" Type="int" />
+          <Property Name="final" Type="int" />
+          <Property Name="ortalama" Type="float" />
+          <Property Name="harfnotu" Type="char" MaxLength="2" />
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+          <Property Name="OgrNo" Type="char" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="OgrAd" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OgrSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="char" MaxLength="1" />
+          <Property Name="DogumTar" Type="date" />
+          <Property Name="OgrTelNo" Type="char" MaxLength="10" />
+          <Property Name="Sinif" Type="varchar" MaxLength="8" />
+          <Property Name="OgrResim" Type="varchar" MaxLength="250" />
+          <Property Name="OgrMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrSifre" Type="varchar" MaxLength="15" />
+          <Property Name="DanismanID" Type="char" MaxLength="10" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="OgrYetkiID" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="OgrenciIsleri">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelAd" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersonelSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PersonelTel" Type="char" MaxLength="10" />
+          <Property Name="PersonelMail" Type="varchar" MaxLength="60" />
+          <Property Name="PersonelSifre" Type="varchar" MaxLength="15" />
+          <Property Name="PersonelYetkiID" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="OgretimElemani">
+          <Key>
+            <PropertyRef Name="OgrtID" />
+          </Key>
+          <Property Name="OgrtID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="OgrtAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OgrtSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unvan" Type="varchar" MaxLength="50" />
+          <Property Name="OgrtMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrtSifre" Type="varchar" MaxLength="15" />
+          <Property Name="OgrtYetkiID" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenBolumKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenBolumKayit">
+          <Property Name="BolumID" Type="int" />
+          <Property Name="BolumAd" Type="varchar" MaxLength="150" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="FakulteID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenDersKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenDersKayit">
+          <Property Name="DersKodu" Type="char" MaxLength="5" />
+          <Property Name="Yariyil" Type="char" MaxLength="1" />
+          <Property Name="DersAdi" Type="varchar" MaxLength="100" />
+          <Property Name="Dil" Type="varchar" MaxLength="15" />
+          <Property Name="Kredi" Type="float" />
+          <Property Name="Akts" Type="float" />
+          <Property Name="BolumID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenFakulteKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenFakulteKayit">
+          <Property Name="FakulteID" Type="int" />
+          <Property Name="FakulteAd" Type="varchar" MaxLength="150" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenOgrKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenOgrKayit">
+          <Property Name="OgrNo" Type="char" MaxLength="9" />
+          <Property Name="OgrAd" Type="varchar" MaxLength="30" />
+          <Property Name="OgrSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Cinsiyet" Type="char" MaxLength="1" />
+          <Property Name="DogumTar" Type="date" />
+          <Property Name="OgrTelNo" Type="char" MaxLength="10" />
+          <Property Name="Sinif" Type="varchar" MaxLength="8" />
+          <Property Name="OgrResim" Type="varchar" MaxLength="250" />
+          <Property Name="OgrMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrSifre" Type="varchar" MaxLength="15" />
+          <Property Name="DanismanID" Type="char" MaxLength="10" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenOgrtKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenOgrtKayit">
+          <Property Name="OgrtID" Type="char" MaxLength="10" />
+          <Property Name="OgrtAd" Type="varchar" MaxLength="50" />
+          <Property Name="OgrtSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Unvan" Type="varchar" MaxLength="50" />
+          <Property Name="OgrtMail" Type="varchar" MaxLength="60" />
+          <Property Name="OgrtSifre" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.SilinenPerKayit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SilinenPerKayit">
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="PersonelAd" Type="varchar" MaxLength="30" />
+          <Property Name="PersonelSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="PersonelTel" Type="char" MaxLength="10" />
+          <Property Name="PersonelMail" Type="varchar" MaxLength="60" />
+          <Property Name="PersonelSifre" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.Yetki' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Yetki">
+          <Property Name="Yetkiid" Type="char" MaxLength="1" />
+          <Property Name="Yetkili" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ObsDb.dbo.Yonetici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Yonetici">
+          <Property Name="YoneticiID" Type="char" MaxLength="5" />
+          <Property Name="YoneticiSifre" Type="varchar" MaxLength="15" />
+          <Property Name="YoneticiYetkiID" Type="char" MaxLength="1" />
+        </EntityType>-->
+        <Association Name="fk_bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ders" Type="Self.Ders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Ders">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.calisir' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_bolumm" />-->
+        <Association Name="fk_bolummm">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_boluumm">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.KayitOnaylar' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_derskodu" />-->
+        <Association Name="fk_derskoduu">
+          <End Role="Ders" Type="Self.Ders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dersskoduu">
+          <End Role="Ders" Type="Self.Ders" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fakulte">
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte">
+              <PropertyRef Name="FakulteID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrno">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrrno">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.calisir' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_ogrt" />-->
+        <Association Name="fk_ogrtI">
+          <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretimElemani">
+              <PropertyRef Name="OgrtID" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="OgrtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'ObsDb.dbo.KayitOnaylar' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_ogrtID" />-->
+        <Association Name="fk_ogrtIDD">
+          <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretimElemani">
+              <PropertyRef Name="OgrtID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="DanismanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_personel">
+          <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciIsleri">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_personell">
+          <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciIsleri">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="akademisyenbilgi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Ogrencibil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="secilmisdersler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="tbNotlar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ObsDbModelStoreContainer">
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ders" EntityType="Self.Ders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DersSecme" EntityType="Self.DersSecme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fakulte" EntityType="Self.Fakulte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Not_" EntityType="Self.Not_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciIsleri" EntityType="Self.OgrenciIsleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretimElemani" EntityType="Self.OgretimElemani" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_bolum" Association="Self.fk_bolum">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="Ders" EntitySet="Ders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bolummm" Association="Self.fk_bolummm">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+          </AssociationSet>
+          <AssociationSet Name="fk_boluumm" Association="Self.fk_boluumm">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="DersSecme" EntitySet="DersSecme" />
+          </AssociationSet>
+          <AssociationSet Name="fk_derskoduu" Association="Self.fk_derskoduu">
+            <End Role="Ders" EntitySet="Ders" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dersskoduu" Association="Self.fk_dersskoduu">
+            <End Role="Ders" EntitySet="Ders" />
+            <End Role="DersSecme" EntitySet="DersSecme" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fakulte" Association="Self.fk_fakulte">
+            <End Role="Fakulte" EntitySet="Fakulte" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrno" Association="Self.fk_ogrno">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrrno" Association="Self.fk_ogrrno">
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+            <End Role="DersSecme" EntitySet="DersSecme" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrtI" Association="Self.fk_ogrtI">
+            <End Role="OgretimElemani" EntitySet="OgretimElemani" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrtIDD" Association="Self.fk_ogrtIDD">
+            <End Role="OgretimElemani" EntitySet="OgretimElemani" />
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+          </AssociationSet>
+          <AssociationSet Name="fk_personel" Association="Self.fk_personel">
+            <End Role="OgrenciIsleri" EntitySet="OgrenciIsleri" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="fk_personell" Association="Self.fk_personell">
+            <End Role="OgrenciIsleri" EntitySet="OgrenciIsleri" />
+            <End Role="Ogrenci" EntitySet="Ogrenci" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ObsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumAd" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="FakulteID" Type="Int32" />
+          <NavigationProperty Name="Ders" Relationship="Self.fk_bolum" FromRole="Bolum" ToRole="Ders" />
+          <NavigationProperty Name="Ogrencis" Relationship="Self.fk_bolummm" FromRole="Bolum" ToRole="Ogrenci" />
+          <NavigationProperty Name="DersSecmes" Relationship="Self.fk_boluumm" FromRole="Bolum" ToRole="DersSecme" />
+          <NavigationProperty Name="Fakulte" Relationship="Self.fk_fakulte" FromRole="Bolum" ToRole="Fakulte" />
+          <NavigationProperty Name="OgrenciIsleri" Relationship="Self.fk_personel" FromRole="Bolum" ToRole="OgrenciIsleri" />
+        </EntityType>
+        <EntityType Name="Der">
+          <Key>
+            <PropertyRef Name="DersKodu" />
+          </Key>
+          <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Yariyil" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DersAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Dil" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Kredi" Type="Double" />
+          <Property Name="Akts" Type="Double" />
+          <Property Name="BolumID" Type="Int32" />
+          <NavigationProperty Name="Bolum" Relationship="Self.fk_bolum" FromRole="Ders" ToRole="Bolum" />
+          <NavigationProperty Name="Not_" Relationship="Self.fk_derskoduu" FromRole="Ders" ToRole="Not_" />
+          <NavigationProperty Name="DersSecmes" Relationship="Self.fk_dersskoduu" FromRole="Ders" ToRole="DersSecme" />
+        </EntityType>
+        <EntityType Name="DersSecme">
+          <Key>
+            <PropertyRef Name="DersSecID" />
+          </Key>
+          <Property Name="DersSecID" Type="Int32" Nullable="false" />
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="BolumID" Type="Int32" />
+          <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Bolum" Relationship="Self.fk_boluumm" FromRole="DersSecme" ToRole="Bolum" />
+          <NavigationProperty Name="Der" Relationship="Self.fk_dersskoduu" FromRole="DersSecme" ToRole="Ders" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.fk_ogrrno" FromRole="DersSecme" ToRole="Ogrenci" />
+        </EntityType>
+        <EntityType Name="Fakulte">
+          <Key>
+            <PropertyRef Name="FakulteID" />
+          </Key>
+          <Property Name="FakulteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FakulteAd" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bolums" Relationship="Self.fk_fakulte" FromRole="Fakulte" ToRole="Bolum" />
+        </EntityType>
+        <EntityType Name="Not_">
+          <Key>
+            <PropertyRef Name="NotID" />
+          </Key>
+          <Property Name="NotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vize" Type="Int32" />
+          <Property Name="final" Type="Int32" />
+          <Property Name="ortalama" Type="Double" />
+          <Property Name="harfnotu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="OgrtID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DersKodu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Der" Relationship="Self.fk_derskoduu" FromRole="Not_" ToRole="Ders" />
+          <NavigationProperty Name="Ogrenci" Relationship="Self.fk_ogrno" FromRole="Not_" ToRole="Ogrenci" />
+          <NavigationProperty Name="OgretimElemani" Relationship="Self.fk_ogrtI" FromRole="Not_" ToRole="OgretimElemani" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OgrAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OgrSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DogumTar" Type="DateTime" Precision="0" />
+          <Property Name="OgrTelNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Sinif" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="OgrResim" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="OgrMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="OgrSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DanismanID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="BolumID" Type="Int32" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="OgrYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Bolum" Relationship="Self.fk_bolummm" FromRole="Ogrenci" ToRole="Bolum" />
+          <NavigationProperty Name="DersSecmes" Relationship="Self.fk_ogrrno" FromRole="Ogrenci" ToRole="DersSecme" />
+          <NavigationProperty Name="Not_" Relationship="Self.fk_ogrno" FromRole="Ogrenci" ToRole="Not_" />
+          <NavigationProperty Name="OgretimElemani" Relationship="Self.fk_ogrtIDD" FromRole="Ogrenci" ToRole="OgretimElemani" />
+          <NavigationProperty Name="OgrenciIsleri" Relationship="Self.fk_personell" FromRole="Ogrenci" ToRole="OgrenciIsleri" />
+        </EntityType>
+        <EntityType Name="OgrenciIsleri">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PersonelSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PersonelTel" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PersonelMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Bolums" Relationship="Self.fk_personel" FromRole="OgrenciIsleri" ToRole="Bolum" />
+          <NavigationProperty Name="Ogrencis" Relationship="Self.fk_personell" FromRole="OgrenciIsleri" ToRole="Ogrenci" />
+        </EntityType>
+        <EntityType Name="OgretimElemani">
+          <Key>
+            <PropertyRef Name="OgrtID" />
+          </Key>
+          <Property Name="OgrtID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OgrtAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OgrtSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Unvan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OgrtMail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="OgrtSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OgrtYetkiID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Not_" Relationship="Self.fk_ogrtI" FromRole="OgretimElemani" ToRole="Not_" />
+          <NavigationProperty Name="Ogrencis" Relationship="Self.fk_ogrtIDD" FromRole="OgretimElemani" ToRole="Ogrenci" />
+        </EntityType>
+        <Association Name="fk_bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ders" Type="Self.Der" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Ders">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bolummm">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_boluumm">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fakulte">
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte">
+              <PropertyRef Name="FakulteID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_personel">
+          <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciIsleri">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_derskoduu">
+          <End Role="Ders" Type="Self.Der" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dersskoduu">
+          <End Role="Ders" Type="Self.Der" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrrno">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1" />
+          <End Role="DersSecme" Type="Self.DersSecme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="DersSecme">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrno">
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenci">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrtI">
+          <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+          <End Role="Not_" Type="Self.Not_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretimElemani">
+              <PropertyRef Name="OgrtID" />
+            </Principal>
+            <Dependent Role="Not_">
+              <PropertyRef Name="OgrtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ogrtIDD">
+          <End Role="OgretimElemani" Type="Self.OgretimElemani" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretimElemani">
+              <PropertyRef Name="OgrtID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="DanismanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_personell">
+          <End Role="OgrenciIsleri" Type="Self.OgrenciIsleri" Multiplicity="0..1" />
+          <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciIsleri">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Ogrenci">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ObsDbEntitiessDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolums" EntityType="Self.Bolum" />
+          <EntitySet Name="Ders" EntityType="Self.Der" />
+          <EntitySet Name="DersSecmes" EntityType="Self.DersSecme" />
+          <EntitySet Name="Fakultes" EntityType="Self.Fakulte" />
+          <EntitySet Name="Not_" EntityType="Self.Not_" />
+          <EntitySet Name="Ogrencis" EntityType="Self.Ogrenci" />
+          <EntitySet Name="OgrenciIsleris" EntityType="Self.OgrenciIsleri" />
+          <EntitySet Name="OgretimElemanis" EntityType="Self.OgretimElemani" />
+          <AssociationSet Name="fk_bolum" Association="Self.fk_bolum">
+            <End Role="Bolum" EntitySet="Bolums" />
+            <End Role="Ders" EntitySet="Ders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bolummm" Association="Self.fk_bolummm">
+            <End Role="Bolum" EntitySet="Bolums" />
+            <End Role="Ogrenci" EntitySet="Ogrencis" />
+          </AssociationSet>
+          <AssociationSet Name="fk_boluumm" Association="Self.fk_boluumm">
+            <End Role="Bolum" EntitySet="Bolums" />
+            <End Role="DersSecme" EntitySet="DersSecmes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fakulte" Association="Self.fk_fakulte">
+            <End Role="Fakulte" EntitySet="Fakultes" />
+            <End Role="Bolum" EntitySet="Bolums" />
+          </AssociationSet>
+          <AssociationSet Name="fk_personel" Association="Self.fk_personel">
+            <End Role="OgrenciIsleri" EntitySet="OgrenciIsleris" />
+            <End Role="Bolum" EntitySet="Bolums" />
+          </AssociationSet>
+          <AssociationSet Name="fk_derskoduu" Association="Self.fk_derskoduu">
+            <End Role="Ders" EntitySet="Ders" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dersskoduu" Association="Self.fk_dersskoduu">
+            <End Role="Ders" EntitySet="Ders" />
+            <End Role="DersSecme" EntitySet="DersSecmes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrrno" Association="Self.fk_ogrrno">
+            <End Role="Ogrenci" EntitySet="Ogrencis" />
+            <End Role="DersSecme" EntitySet="DersSecmes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrno" Association="Self.fk_ogrno">
+            <End Role="Ogrenci" EntitySet="Ogrencis" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrtI" Association="Self.fk_ogrtI">
+            <End Role="OgretimElemani" EntitySet="OgretimElemanis" />
+            <End Role="Not_" EntitySet="Not_" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ogrtIDD" Association="Self.fk_ogrtIDD">
+            <End Role="OgretimElemani" EntitySet="OgretimElemanis" />
+            <End Role="Ogrenci" EntitySet="Ogrencis" />
+          </AssociationSet>
+          <AssociationSet Name="fk_personell" Association="Self.fk_personell">
+            <End Role="OgrenciIsleri" EntitySet="OgrenciIsleris" />
+            <End Role="Ogrenci" EntitySet="Ogrencis" />
+          </AssociationSet>
+          <FunctionImport Name="akademisyenbilgi" ReturnType="Collection(ObsDbModel.akademisyenbilgi_Result)" />
+          <FunctionImport Name="Ogrencibil" ReturnType="Collection(ObsDbModel.Ogrencibil_Result)" />
+          <FunctionImport Name="secilmisdersler" ReturnType="Collection(ObsDbModel.secilmisdersler_Result)" />
+          <FunctionImport Name="tbNotlar" ReturnType="Collection(ObsDbModel.tbNotlar_Result)" />
+        </EntityContainer>
+        <ComplexType Name="akademisyenbilgi_Result">
+          <Property Type="String" Name="OgrtID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="OgrtAd" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="OgrtSoyad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unvan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OgrtMail" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="Ogrencibil_Result">
+          <Property Type="String" Name="OgrNO" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="OgrAd" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="OgrSoyad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Cinsiyet" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="DogumTar" Nullable="true" />
+          <Property Type="String" Name="OgrTelNo" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Sinif" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="OgrResim" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="OgrMail" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="OgrSifre" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="DanismanID" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="secilmisdersler_Result">
+          <Property Type="Int32" Name="DersSecID" Nullable="false" />
+          <Property Type="String" Name="OgrAd" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="OgrSoyad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Yariyil" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="DersAdi" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Akts" Nullable="true" />
+          <Property Type="Double" Name="Kredi" Nullable="true" />
+          <Property Type="String" Name="BolumAd" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="tbNotlar_Result">
+          <Property Type="Int32" Name="NotID" Nullable="false" />
+          <Property Type="Int32" Name="Vize" Nullable="true" />
+          <Property Type="Int32" Name="final" Nullable="true" />
+          <Property Type="Double" Name="ortalama" Nullable="true" />
+          <Property Type="String" Name="harfnotu" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="OgrtID" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ObsDbModelStoreContainer" CdmEntityContainer="ObsDbEntitiessDB">
+          <EntitySetMapping Name="Bolums">
+            <EntityTypeMapping TypeName="ObsDbModel.Bolum">
+              <MappingFragment StoreEntitySet="Bolum">
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ders">
+            <EntityTypeMapping TypeName="ObsDbModel.Der">
+              <MappingFragment StoreEntitySet="Ders">
+                <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+                <ScalarProperty Name="Yariyil" ColumnName="Yariyil" />
+                <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="Dil" ColumnName="Dil" />
+                <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+                <ScalarProperty Name="Akts" ColumnName="Akts" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DersSecmes">
+            <EntityTypeMapping TypeName="ObsDbModel.DersSecme">
+              <MappingFragment StoreEntitySet="DersSecme">
+                <ScalarProperty Name="DersSecID" ColumnName="DersSecID" />
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fakultes">
+            <EntityTypeMapping TypeName="ObsDbModel.Fakulte">
+              <MappingFragment StoreEntitySet="Fakulte">
+                <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+                <ScalarProperty Name="FakulteAd" ColumnName="FakulteAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Not_">
+            <EntityTypeMapping TypeName="ObsDbModel.Not_">
+              <MappingFragment StoreEntitySet="Not_">
+                <ScalarProperty Name="NotID" ColumnName="NotID" />
+                <ScalarProperty Name="vize" ColumnName="vize" />
+                <ScalarProperty Name="final" ColumnName="final" />
+                <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+                <ScalarProperty Name="harfnotu" ColumnName="harfnotu" />
+                <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+                <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogrencis">
+            <EntityTypeMapping TypeName="ObsDbModel.Ogrenci">
+              <MappingFragment StoreEntitySet="Ogrenci">
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+                <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="DogumTar" ColumnName="DogumTar" />
+                <ScalarProperty Name="OgrTelNo" ColumnName="OgrTelNo" />
+                <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+                <ScalarProperty Name="OgrResim" ColumnName="OgrResim" />
+                <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+                <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+                <ScalarProperty Name="DanismanID" ColumnName="DanismanID" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="OgrYetkiID" ColumnName="OgrYetkiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciIsleris">
+            <EntityTypeMapping TypeName="ObsDbModel.OgrenciIsleri">
+              <MappingFragment StoreEntitySet="OgrenciIsleri">
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="PersonelAd" ColumnName="PersonelAd" />
+                <ScalarProperty Name="PersonelSoyad" ColumnName="PersonelSoyad" />
+                <ScalarProperty Name="PersonelTel" ColumnName="PersonelTel" />
+                <ScalarProperty Name="PersonelMail" ColumnName="PersonelMail" />
+                <ScalarProperty Name="PersonelSifre" ColumnName="PersonelSifre" />
+                <ScalarProperty Name="PersonelYetkiID" ColumnName="PersonelYetkiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretimElemanis">
+            <EntityTypeMapping TypeName="ObsDbModel.OgretimElemani">
+              <MappingFragment StoreEntitySet="OgretimElemani">
+                <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+                <ScalarProperty Name="OgrtAd" ColumnName="OgrtAd" />
+                <ScalarProperty Name="OgrtSoyad" ColumnName="OgrtSoyad" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="OgrtMail" ColumnName="OgrtMail" />
+                <ScalarProperty Name="OgrtSifre" ColumnName="OgrtSifre" />
+                <ScalarProperty Name="OgrtYetkiID" ColumnName="OgrtYetkiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="akademisyenbilgi" FunctionName="ObsDbModel.Store.akademisyenbilgi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ObsDbModel.akademisyenbilgi_Result">
+                <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+                <ScalarProperty Name="OgrtAd" ColumnName="OgrtAd" />
+                <ScalarProperty Name="OgrtSoyad" ColumnName="OgrtSoyad" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="OgrtMail" ColumnName="OgrtMail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Ogrencibil" FunctionName="ObsDbModel.Store.Ogrencibil">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ObsDbModel.Ogrencibil_Result">
+                <ScalarProperty Name="OgrNO" ColumnName="OgrNO" />
+                <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+                <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="DogumTar" ColumnName="DogumTar" />
+                <ScalarProperty Name="OgrTelNo" ColumnName="OgrTelNo" />
+                <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+                <ScalarProperty Name="OgrResim" ColumnName="OgrResim" />
+                <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+                <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+                <ScalarProperty Name="DanismanID" ColumnName="DanismanID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="secilmisdersler" FunctionName="ObsDbModel.Store.secilmisdersler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ObsDbModel.secilmisdersler_Result">
+                <ScalarProperty Name="DersSecID" ColumnName="DersSecID" />
+                <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+                <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+                <ScalarProperty Name="Yariyil" ColumnName="Yariyil" />
+                <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="Akts" ColumnName="Akts" />
+                <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+                <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbNotlar" FunctionName="ObsDbModel.Store.tbNotlar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ObsDbModel.tbNotlar_Result">
+                <ScalarProperty Name="NotID" ColumnName="NotID" />
+                <ScalarProperty Name="Vize" ColumnName="Vize" />
+                <ScalarProperty Name="final" ColumnName="final" />
+                <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+                <ScalarProperty Name="harfnotu" ColumnName="harfnotu" />
+                <ScalarProperty Name="OgrtID" ColumnName="OgrtID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

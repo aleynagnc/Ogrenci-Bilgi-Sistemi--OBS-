@@ -1,0 +1,19 @@
+Proje için lütfen okuyunuz
+1-"ObsDb.sql" dosaysında tarafımızca sql dilinde yazılan Öğrenci Bilgi 
+Sistemi veritabanı tabloları yer almaktadır.
+2-"OBS Triggers.sql"dosyasında tarafımızca projemiz için yazılan triggerlar yer 
+almaktadır.
+3-"Not Procedure.sql", "akademisyenbilgi procedure.sql", "OgrenciBilgi Procedure.sql" 
+ve "secilmisdersler procedure.sql" dosyalarında tarafımızca projemiz için yazılan 
+stored procedure'ler yer almaktadır.
+4-"ObsDb Generated Scripts.sql" dosyasında Ögrenci Bilgi Sistemi veritabanının Microsoft Sql
+Server'da Generated Scripts üzerinden üretilen yedeği bulunmaktadır.
+ObsDb adında yeni bir veritabanı açıp bu dosyayı "Execute" butonuyla
+çalıştırırsanız yedek, Microsoft Sql Server'ınızda açılır hale gelecektir.
+5-"OBS Sistemi Proje" isimli klasörde Visual Studio üzerinde yapılan projemiz
+ve arayüzü yer almaktadır.
+6-"excel biçinde kaydetme.xlsx" dosyasında  xlsx uzantısı ile kaydedilen
+kayıtlar tutulmaktadır.
+7-"export.xlsx" dosyasında export edilen öğrenci tablosu yer almaktadır.
+8-"Veri Tabanı Proje Raporu.pdf" dosyasında proje raporumuz yer almaktadır
+ 

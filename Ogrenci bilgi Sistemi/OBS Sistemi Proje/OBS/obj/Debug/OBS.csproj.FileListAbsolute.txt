@@ -1,0 +1,136 @@
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\OBS.exe.config
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\EntityFramework.dll
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\EntityFramework.xml
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.AkademisyenGiris.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.Bilgilerim.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.Ders.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.DersSecmeIslemleri.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.LoginEkrani.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.menüEkrani.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgrenciEklemeSilme.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgrencIsleriEkleSil.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgretimElemaniEkleSil.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgrenciGoruntule.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgretimElemaniGoruntule.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.PersonelGiris.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.Properties.Resources.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.OgrenciGiris.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.SifremiUnuttumOgr.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.SifremiUnuttumOgrt.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.SifremiUnuttumPersonel.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.Yoneticigiris.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.csproj.GenerateResource.cache
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.csproj.CoreCompileInputs.cache
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.csproj.AssemblyReference.cache
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.NotGirisi.resources
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.csproj.ResolveComReference.cache
+C:\Users\LENOVA\Desktop\OBS Gülçin\OBS\obj\Debug\OBS.Notgoster.resources
+E:\OBS sistemi proje\OBS\bin\Debug\OBS.exe.config
+E:\OBS sistemi proje\OBS\bin\Debug\OBS.exe
+E:\OBS sistemi proje\OBS\bin\Debug\OBS.pdb
+E:\OBS sistemi proje\OBS\bin\Debug\EntityFramework.dll
+E:\OBS sistemi proje\OBS\bin\Debug\EntityFramework.SqlServer.dll
+E:\OBS sistemi proje\OBS\bin\Debug\EntityFramework.xml
+E:\OBS sistemi proje\OBS\bin\Debug\EntityFramework.SqlServer.xml
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.AssemblyReference.cache
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.ResolveComReference.cache
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.AkademisyenGiris.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.Bilgilerim.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.Ders.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.DersSecmeIslemleri.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.LoginEkrani.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.menüEkrani.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.NotGirisi.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.Notgoster.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciEklemeSilme.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgrencIsleriEkleSil.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgretimElemaniEkleSil.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciGoruntule.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgretimElemaniGoruntule.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.PersonelGiris.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.Properties.Resources.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciGiris.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumOgr.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumOgrt.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumPersonel.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.Yoneticigiris.resources
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.GenerateResource.cache
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.CoreCompileInputs.cache
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.exe
+E:\OBS sistemi proje\OBS\obj\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\OBS.exe.config
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\EntityFramework.dll
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\EntityFramework.xml
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.AssemblyReference.cache
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.ResolveComReference.cache
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.AkademisyenGiris.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.Bilgilerim.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.Ders.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.DersSecmeIslemleri.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.LoginEkrani.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.menüEkrani.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.NotGirisi.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.Notgoster.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciEklemeSilme.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgrencIsleriEkleSil.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgretimElemaniEkleSil.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciGoruntule.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgretimElemaniGoruntule.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.PersonelGiris.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.Properties.Resources.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.OgrenciGiris.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumOgr.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumOgrt.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.SifremiUnuttumPersonel.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.YedekleYedektenDön.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.Yoneticigiris.resources
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.GenerateResource.cache
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.csproj.CoreCompileInputs.cache
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\OBS sistemi proje\OBS\obj\Debug\OBS.importexport.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\OBS.exe.config
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\OBS.pdb
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\EntityFramework.dll
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\EntityFramework.xml
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.csproj.AssemblyReference.cache
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.csproj.ResolveComReference.cache
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.AkademisyenGiris.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.Bilgilerim.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.Ders.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.DersSecmeIslemleri.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.importexport.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.LoginEkrani.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.menüEkrani.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.NotGirisi.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.Notgoster.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgrenciEklemeSilme.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgrencIsleriEkleSil.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgretimElemaniEkleSil.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgrenciGoruntule.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgretimElemaniGoruntule.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.PersonelGiris.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.Properties.Resources.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.OgrenciGiris.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.SifremiUnuttumOgr.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.SifremiUnuttumOgrt.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.SifremiUnuttumPersonel.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.YedekleYedektenDön.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.Yoneticigiris.resources
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.csproj.GenerateResource.cache
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.csproj.CoreCompileInputs.cache
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.exe
+C:\Users\LENOVA\Desktop\vtys cd içindekiler\OBS Sistemi Proje\OBS\obj\Debug\OBS.pdb
